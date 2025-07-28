@@ -1,12 +1,26 @@
-# Dockerfile
-FROM --platform=linux/amd64 python:3.10-slim
+# Use an official Python 3.12 base image
+FROM python:3.12-slim
 
+# Set working directory
+WORKDIR /app
 
-# Copy entire app codebase
-COPY . .
+# Install system dependencies required by PyMuPDF, torch, etc.
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    poppler-utils \
+    tesseract-ocr \
+    git \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies (CPU only, offline safe)
+# Copy requirements and install Python dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Default command
+# Copy all source code
+COPY . .
+
+# Ensure input/output directories exist
+RUN mkdir -p /app/input /app/output
+
+# Default command to run your processing script
 CMD ["python", "main.py"]

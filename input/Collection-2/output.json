@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "input_documents": [
+      "Learn Acrobat - Create and Convert_1.pdf",
+      "Learn Acrobat - Create and Convert_2.pdf",
+      "Learn Acrobat - Edit_1.pdf",
+      "Learn Acrobat - Edit_2.pdf",
+      "Learn Acrobat - Export_1.pdf",
+      "Learn Acrobat - Export_2.pdf",
+      "Learn Acrobat - Fill and Sign.pdf",
+      "Learn Acrobat - Generative AI_1.pdf",
+      "Learn Acrobat - Generative AI_2.pdf",
+      "Learn Acrobat - Request e-signatures_1.pdf",
+      "Learn Acrobat - Request e-signatures_2.pdf",
+      "Learn Acrobat - Share_1.pdf",
+      "Learn Acrobat - Share_2.pdf",
+      "Test Your Acrobat Exporting Skills.pdf",
+      "The Ultimate PDF Sharing Checklist.pdf"
+    ],
+    "persona": "HR professional",
+    "job_to_be_done": "Create and manage fillable forms for onboarding and compliance.",
+    "processing_timestamp": "2025-07-28 12:53:19.860605"
+  },
+  "extracted_sections": [
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "section_title": "General Packing Tips and Tricks \u2022 Layering: The weather can vary, so pack layers to stay comfortable in di\ufb00erent temperatures",
+      "importance_rank": 1,
+      "page_number": 2
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "section_title": "\u2022 Notebook: Bring a notebook to jot down notes about the wines you taste",
+      "importance_rank": 2,
+      "page_number": 8
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "section_title": "Packing for All Seasons Spring (March to May) \u2022 Clothing: Light sweaters, long-sleeve shirts, t-shirts, and a light jacket or raincoat",
+      "importance_rank": 3,
+      "page_number": 3
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "section_title": "Packing for Kids Clothing \u2022 Comfortable Wear: T-shirts, shorts, pants, dresses, pajamas, and underwear",
+      "importance_rank": 4,
+      "page_number": 6
+    },
+    {
+      "document": "South of France - Traditions and Culture.pdf",
+      "section_title": "The sport is deeply rooted in local culture and is often accompanied by music and festivities, particularly in Arles from April to October",
+      "importance_rank": 5,
+      "page_number": 3
+    }
+  ],
+  "subsection_analysis": [
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "refined_text": "General Packing Tips and Tricks \u2022 Layering: The weather can vary, so pack layers to stay comfortable in di\ufb00erent temperatures.",
+      "page_number": 2
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "refined_text": "\u2022 Notebook: Bring a notebook to jot down notes about the wines you taste.",
+      "page_number": 8
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "refined_text": "\u2022 Additional Tips: Spring can be unpredictable, so be prepared for both sunny and rainy days.",
+      "page_number": 3
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "refined_text": "Packing for Kids Clothing \u2022 Comfortable Wear: T-shirts, shorts, pants, dresses, pajamas, and underwear.",
+      "page_number": 6
+    },
+    {
+      "document": "South of France - Traditions and Culture.pdf",
+      "refined_text": "The sport is deeply rooted in local culture and is often accompanied by music and festivities, particularly in Arles from April to October.",
+      "page_number": 3
+    }
+  ]
+}
