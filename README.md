@@ -30,7 +30,7 @@ A fully containerized solution to process and analyze PDF documents using local 
 
 ### 🤖 Step 3: Local Model Inference
 - Uses **`sentence-transformers`** such as:
-  - `all-mini-lm-l12-v2`
+  - `all-MiniLM-L12-v2`
 - Models are stored locally in `local_models/` to ensure:
   - ✅ Offline compatibility  
   - ✅ No data leakage  
