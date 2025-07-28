@@ -50,7 +50,7 @@ A fully containerized solution to process and analyze PDF documents using local 
 ### 🐳 Step 5: Containerization
 - Everything runs inside a Docker container:
   - Base image: `python:3.12-slim`
-  - Includes: `PyMuPDF`, `sentence-transformers`, `Tesseract`, `poppler-utils`, etc.
+  - Includes: `PyMuPDF`, `sentence-transformers` etc.
 - Uses `--network none` to ensure **no internet access**
 - Fully reproducible and isolated from host machine
 
@@ -58,14 +58,14 @@ A fully containerized solution to process and analyze PDF documents using local 
 
 ## 🛠️ How to Build and Run
 1) Clone the Repository
-2) Create a Virtual Environment-- python -m venv venv (command)-- venv\Scripts\activate (activate command)
-3) Install All Dependencies-- pip install -r requirements.txt (command)
-4) Download the Model Locally (One-Time)-- python download_model.py (command)
-5) Place your .pdf files into the /input folder
-6) Run the main file-- python main.py (command)
+2) Create a Virtual Environment: python -m venv venv (command)
+3) For Activating Virtual Environment: venv\Scripts\activate (activate command)
+4) Install All Dependencies: pip install -r requirements.txt (command)
+5) Download the Model Locally (One-Time): python download_model.py (command)
+6) Place your .pdf files into the /input/Collection/PDFs folder, and also add your input.json
+7) Run the main file: python main.py (command)
 
-### 🔧 Docker Commands
+### 🔧 Docker Commands (Run in Powershell)
 
 1) Build Command: docker build --platform Linux/amd64 -t adobe1b.personachallenge .
 2) Run Command: docker run --rm -v ${PWD}:/app adobe1b.personachallenge
-
