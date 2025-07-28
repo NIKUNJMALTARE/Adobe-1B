@@ -5,7 +5,6 @@ import re
 
 collection_path = "input/Collection-1/PDFs"
 
-
 def clean_text(text):
     text = re.sub(r"\s+", " ", text)
     text = re.sub(r"Page \d+", "", text)
@@ -34,7 +33,6 @@ def extract_sections_single_pdf(pdf_path, filename):
     return sections
 
 def parse_all_pdfs(document_list):
-    # List all PDF files in the folder
     pdf_files = [f for f in os.listdir(collection_path) if f.endswith(".pdf")]
     document_list = [{"filename": f} for f in pdf_files]
 
@@ -43,7 +41,6 @@ def parse_all_pdfs(document_list):
         for doc in document_list:
             file_path = os.path.join(collection_path, doc["filename"])
             futures.append(executor.submit(extract_sections_single_pdf, file_path, doc["filename"]))
-
         parsed = []
         for future in futures:
             parsed.extend(future.result())

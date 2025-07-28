@@ -1,5 +1,3 @@
-
-
 import json
 import os
 from datetime import datetime
@@ -58,7 +56,7 @@ def process_collection(collection_path):
     with open(output_path, "w") as f:
         json.dump(output, f, indent=2)
     
-    print(f"✅ Processed: {collection_path}")
+    print(f"Processed: {collection_path}")
 
 def main():
     for name in os.listdir(INPUT_DIR):
