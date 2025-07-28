@@ -1,23 +1,71 @@
-Methodology and Approach
-Our solution is designed to process and analyze PDF documents using local models in a controlled, secure environment. The overall goal is to extract relevant content, apply inference using NLP models, and generate structured output in a reproducible and isolated manner using Docker.
+# 🧠 Adobe-1B
 
-Step 1: PDF Ingestion
-The system begins by reading PDF files placed in a designated input directory. These files are extracted using the PyMuPDF library (fitz), which offers fast and flexible access to text, images, and metadata embedded in PDFs. This ensures robustness across a wide variety of document types.
+A fully containerized solution to process and analyze PDF documents using local NLP models — ensuring **data privacy**, **offline compatibility**, and **structured output** generation.
 
-Step 2: Preprocessing and Cleaning
-Extracted text undergoes preprocessing including tokenization, noise removal, and structural formatting. This prepares the content for further inference and ensures consistency in outputs regardless of input formatting variation.
+---
 
-Step 3: Local Model Inference
-We use sentence-transformers (e.g., all-mpnet-base-v2 or all-mini-lm-l6-v2) from Hugging Face to compute semantic embeddings for extracted content. These models are pre-downloaded into a local_models directory to ensure offline compatibility and data privacy.
+## 🧰 Features
 
-We compute cosine similarity between document embeddings and predefined query vectors or templates to classify and extract relevant data (such as table of contents, summary, keywords, etc.).
+- 📄 Extracts text, images, and metadata from PDFs using `PyMuPDF`
+- 🧹 Cleans and formats content for consistency
+- 🤖 Infers document semantics using **local NLP models** 
+- 🧠 Embedding-based similarity for smart content classification
+- 📦 Containerized using Docker (Python 3.12-slim)
+- 🔒 Completely offline, secure, and reproducible
 
-This step enables smart data understanding without relying on cloud-based APIs, ensuring full control and security.
+---
 
-Step 4: Structured Output
-Based on the inference results, JSON output files are generated and saved. Each output file is saved in the same collection (folder) from which its input PDF was retrieved, maintaining organizational traceability.
+## 🧭 Methodology and Approach
 
-For example, if input is from /input/Collection_A/input.json, the corresponding output is saved in /input/Collection_A/output.json.
+### 📥 Step 1: PDF Ingestion
+- PDFs are placed in a designated `input/` directory.
+- Text, images, and metadata are extracted using `PyMuPDF (fitz)`, ensuring flexibility across diverse document types.
 
-Step 5: Containerization
-The solution is fully containerized using Docker. All dependencies (Tesseract, poppler-utils, PyTorch, etc.) are installed in a Python 3.12-slim image. This ensures reproducibility and isolates the runtime environment from the host machine. No internet access is used inside the container (--network none), supporting secure offline execution.
+### 🧼 Step 2: Preprocessing and Cleaning
+- Text is preprocessed:
+  - Tokenization  
+  - Noise removal  
+  - Structural formatting
+- Ensures consistent and clean data for downstream NLP inference.
+
+### 🤖 Step 3: Local Model Inference
+- Uses **`sentence-transformers`** such as:
+  - `all-mini-lm-l12-v2`
+- Models are stored locally in `local_models/` to ensure:
+  - ✅ Offline compatibility  
+  - ✅ No data leakage  
+  - ✅ Fast inference
+- Embeddings are computed for content and matched against predefined query vectors using **cosine similarity** to extract:
+  - Table of contents  
+  - Summary  
+  - Keywords  
+  - Custom semantic segments
+
+### 📊 Step 4: Structured Output
+- Output is saved in `JSON` format, placed alongside its input collection:
+  - Example:  
+    Input → `/input/Collection_A/input.pdf`  
+    Output → `/input/Collection_A/output.json`
+
+### 🐳 Step 5: Containerization
+- Everything runs inside a Docker container:
+  - Base image: `python:3.12-slim`
+  - Includes: `PyMuPDF`, `sentence-transformers`, `Tesseract`, `poppler-utils`, etc.
+- Uses `--network none` to ensure **no internet access**
+- Fully reproducible and isolated from host machine
+
+---
+
+## 🛠️ How to Build and Run
+1) Clone the Repository
+2) Create a Virtual Environment-- python -m venv venv (command)-- venv\Scripts\activate (activate command)
+3) Install All Dependencies-- pip install -r requirements.txt (command)
+4) Download the Model Locally (One-Time)-- python download_model.py (command)
+5) Place your .pdf files into the /input folder
+6) Run the main file-- python main.py (command)
+
+### 🔧 Docker Commands
+
+1) Build Command: docker build --platform Linux/amd64 -t adobe1b.personachallenge .
+2) Run Command: docker run --rm -v ${PWD}:/app adobe1b.personachallenge
+
