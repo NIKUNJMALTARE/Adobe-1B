@@ -3,7 +3,8 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L12-v2")
+model = SentenceTransformer("local_models/all-MiniLM-L12-v2")
+
 
 def rank_sections_by_relevance(query, sections):
     query_vec = model.encode([query])[0]  # batch of 1

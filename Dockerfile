@@ -16,11 +16,17 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+COPY local_models /app/local_models
+
 # Copy all source code
 COPY . .
 
 # Ensure input/output directories exist
 RUN mkdir -p /app/input /app/output
+
+
+ENV TOKENIZERS_PARALLELISM=false
+
 
 # Default command to run your processing script
 CMD ["python", "main.py"]

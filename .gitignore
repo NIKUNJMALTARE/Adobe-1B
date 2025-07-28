@@ -1,6 +1,10 @@
 # Ignore virtual environments
 /venv
-.venv
+
 
 # Ignore model directory and everything inside it
 .models/
+/local_models/
+/local_models
+
+
